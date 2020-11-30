@@ -1,2 +1,5 @@
 from datetime import datetime
-print(datetime.now())
+f = open("testing.txt", "a")
+f.write(f"{datetime.now()} is the new time \n")
+
+f.close()
