@@ -24,7 +24,11 @@ jobs:
     steps:
       - name: Check out Repo content
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
+      - name: setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8 #install the python needed
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -35,10 +39,6 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-      - name: setup python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.8 #install the python needed
       - name: execute py script # run the run.py to get the latest data
         run: |
            python run.py
